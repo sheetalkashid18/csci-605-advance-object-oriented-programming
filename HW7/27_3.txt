@@ -1,0 +1,26 @@
+The code doesnot compile because in the method, noSystemExit() the last return can never be reached as the last code executed is the finally block and it is executed no matter what.
+
+
+noSystemExit()
+
+This method the try block throws an exception which is caught in the catch block and the print statement which prints "2" is executed. Then the finally block is executed which will print "3 finally".The return statement from finally overrides all the other return statements and will return 1. But there is a compile time error the program gives as the finally is the last block which is ever executed and it is executed no matter what and hence the code that is return 3 becomes unreachable. 
+
+
+noExeption()
+
+This method returns an integer. The try block doesn't throw any exception which is why no catch block is executed.The try block prints "inside try: 1". The finally block will still get executed and will return 2 which will overide the return in try block.
+
+
+anExeption1()
+
+It creates an array anArray of size 1.The try block throws Arithmetic exception first which is caught by ArithmeticException. Then the assignment anArray[2] = 0 is not a valid statement and should give ArrayIndexOutOfBoundsException but there is no try block to catch the exception and hence is goes directly to finally and finally block is executed and the method prints "inside finally: 3 " and returns 2.
+
+
+anExeption2()
+
+It creates an array anArray of size 1.The assignment anArray[2] = 0 inside the try block gives ArrayIndexOutOfBoundsException but there is no catch block to catch the particular exception and hence is goes directly to finally and finally block is executed and the method prints "inside finally: 3 " and returns 2.
+
+
+withSystemExit()
+
+The try block throws an exception which is caught by catch block. It prints 5 and then System.exit(0) will end the program and hence nothing is excuted after that, not even finally.This is the only case where finally won't get executed.

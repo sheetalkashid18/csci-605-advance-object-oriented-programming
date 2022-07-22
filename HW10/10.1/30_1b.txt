@@ -1,0 +1,9 @@
+A new thread Thread_0 is created by the main thread and it starts execution.
+In the run method, Thread_0 creates Thread_1 and sleeps for 100ms. 
+
+
+Thread_1 goes into the synchronised block as it has the key. prints id, then enters try block and sleeps for 200ms. Until then Thread_2 enters the synchronised block as it's a new object it goes to if block ( counter value being zero ), and sets the counter to 1. After that, it goes into the wait state. 
+
+Thread_1 sleep is done and goes to else and notify gives an exception as the object was changed Thread_1 does not have an access to it.
+
+Thread_2 will forever be in wait state now.

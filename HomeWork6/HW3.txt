@@ -1,0 +1,40 @@
+boolean addAll(Collection<? extends E> c)
+
+Explanation: The above is a method which returns a boolean value and has one parameter. Collection<? extends E> allows to pass a param of type E or subtype of E.That is E denotes the upper bound of all valid types.
+
+boolean containsAll(Collection<?> c)
+
+Explanation: The above is a method which returns a boolean value and has one parameter. Collection<?> allows to pass a param, a collection of type which is not known/is unknown.
+
+static <T> void fill(List<? super T> list, T obj)
+
+Explanation: The above is a generic type static method having type parameter scope limited to T. 
+There are two parameters :
+1.List<? super T> list , which tells that the scope of the elements in the list is T or super type of T. That is T denotes lower bound of all valid types the list can accept.
+2.T obj, obj is of generic type T.
+
+static <T extends Comparable<? super T>> void sort(List<T> list)
+
+Explanation: The above is a static method which returns void and scope of the parameters is limited to <T extends Comparable<? super T>> which signifies that the upper limit of valid types is Comparable<? super T>. Comparable<? super T> signifies type T or super classes of T (T is Lower bound) implements comparable. So overall it means class T or one of it's superclass implements comparable. The parameter List<T> list, is a list of elements of type T. 
+
+static <T> void sort(List<T> list, Comparator<? super T> c)
+
+Explanation: The above is a static method which returns void scope of the parameters is limited to type T.
+There are two parameters:
+1.List<T> list, is a list of elements of type T.
+2. Comparator<? super T> c, c is a comparator object which specifies in what order to sort the list(in this method "sort") where the type of elements is T or any super class of T. 
+
+static void swap(List<?> list, int i, int j)
+
+Explanation: The above is a static method which returns void and has three parameters. 
+1. List<?> list, List<?> allows us to pass as a param, a List which can contain elements of type which are not known/ is unknown.
+2. int i, param i of type integer
+3. int j, param j of type integer
+
+static <K, V> Map<K,V> synchronizedMap(Map<K,V> m)
+
+Explanation: The above is a static method having return type Map<K,V> and having scope of the parameters limited to type <K,V>. The parameter (Map<K,V> m), m is object of Map<K,V> class where K is the type of keys and V is the type of the values that are mapped.
+
+static void reverse(List<?> list)
+
+Explanation: The above is a static method which returns void and has one parameter. List<?> allows us to pass as a param, a List which can contain elements of type which are not known/ is unknown.

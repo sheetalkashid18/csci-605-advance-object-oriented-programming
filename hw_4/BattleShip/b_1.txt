@@ -1,0 +1,6 @@
+width 3
+height 4
+row 1 2 1
+row w 2 w
+row 3 2 3
+row 4 2 4

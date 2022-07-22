@@ -1,0 +1,1 @@
+Homework 6.1 omits saturn because we store the list of all the astronomical objects with respect to it's reference when we change the fields of aPlanet object the previously added object in the list refers to newly changed values.  

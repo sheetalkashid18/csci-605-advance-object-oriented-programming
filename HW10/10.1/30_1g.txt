@@ -1,0 +1,6 @@
+A new thread Thread_0 is created by the main thread and it starts execution.
+In the run method, Thread_0 creates Thread_1 and sleeps for 1000s
+
+Thread_1 goes into the synchronised block as it has the key. Thread_1 enters the if block ( counter value being zero ), and sets the counter to 1. After that, it goes into the wait state. 
+
+Thread_2 comes into the synchronised block as it also has the key and does not enter the if block since the counter value has been modified and set to 1. Thread_2 completes its execution and after its completion, the waiting Thread_1 cannot be notified as the wait object was changed and o.notify will not be able to notify the previous object and hence it goes into an infinite loop.

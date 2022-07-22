@@ -1,0 +1,5 @@
+The main thread starts creates 3 new objects. a new XX object constructor is called. o_1 is set as o_1 and o_2 as o_2. Now this thread Thread_0 is started. now since o_1 is available this thread enters the synchronised block. It prints the id as 0 and enters try block. since oneIsRunning is false it entered if and creates another object but now it's o_1 is o_2 and o_2 is o_1 for this new object. Thread_1 starts enters synchronized ( o_1 ) because the object is available.oneIsRunning  is set to true by Thread_0. Thread_0 will enter the synchronized(o_2) only if Thread_1 hasn't entered and goes to wait. If Thread_1 hasn't entered it will enter this block and wait and return the key.
+Whatever is the case the following output is the only possibility.
+0
+1
+And goes on permanent wait

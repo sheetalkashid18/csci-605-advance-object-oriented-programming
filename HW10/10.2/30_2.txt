@@ -1,0 +1,53 @@
+Only one output is possible which is,
+1
+2
+3
+1
+2
+3
+.
+.
+.
+ans so on
+
+Explanation:
+
+all[] is a static array of objects and consists of 3 different objects.
+
+The main thread will execute 
+creates a new object of Organisedthreads, calls the parameterised constructor and
+id, first object and second object are initialised
+Now, Main thread could end or this new thread thread_0 could execute
+thread_0 starts executing, 
+
+enters the while(true) loop sleeps for 300 ms and will enter the synchronized ( first ) as the scheduler has the key also enters synchronized ( second ) as the key is available.
+
+notify() will let schedular know that it's executed and if a thread is waiting it can be given the key. 
+
+in try, after incrementing the id it creates a new object with new id (incremented) and the first object becomes the second, and second becomes third and now we start the execution of new thread, Thread_1.
+
+Now scheduler has 2 threads to execute ignoring the main thread. Thread_0 or Thread_1
+
+if Thread_1 starts the execution sleeps for 300 ms
+
+Thread_0 will enter try block and will performs wait, returning the key to schedular even  if Thread_1 executes first it will be blocked by synchronized ( first ) as Thread_1 is executing inside. 
+
+Now after Thread_0 exits synchronized ( second ) key will be returned to the scheduler and Thread_1 can now enter. Will enter synchronized ( second ) because it's a new object.
+
+Will print id then creates another thread Thread_2 and starts it.
+This thread, createdsofar becomes 3 which is maximum and now all[0] is the 2nd object.
+
+Now this will keep executing until createdSoFar reaches MAX.
+
+As createdSoFar will be incremented and will give index out of bounds exception now no more threads will be created but due to while(true) it will keep on executing and hence giving out the same ids
+1
+2
+3
+1
+2
+3
+.
+.
+.
+and so on
+The notify() will make all the waits to get notified as each object becomes 2nd somewhere in the loop and the order will always be maintained.
